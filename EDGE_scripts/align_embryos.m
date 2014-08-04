@@ -5,7 +5,7 @@
 split_img_frame = zeros(num_embryos,2); % raw image index
 split_dev_frame = zeros(num_embryos,2); % EDGE index
 
-for embryoID = 11:12
+for embryoID = 11:15
 
     % Fit PCCL
     [split_dev_frame(embryoID,:),split_img_frame(embryoID,:),xdata,models,p] = ...
@@ -38,11 +38,13 @@ end
 
 %% Visualizing mean properties
 
-name2plot = 'area_sm';
+name2plot = 'myosin_intensity';
 
 figure, clear H
 embryoID_OI = [1:5];
+
 color = hsv(numel(embryoID_OI));
+
 for i = 1:numel( embryoID_OI )
     
 %     switch i
@@ -58,9 +60,10 @@ for i = 1:numel( embryoID_OI )
     
     time = embryo_stack(embryoID).dev_time;
     data = embryo_stack(embryoID).(name2plot);
-    
-%     data = bsxfun(@rdivide,data,nanmean(data));
-    
+    data = data / nanmax(data(:));
+%     time = cat(2,cells.get_embryoID(embryoID).dev_time);
+%     data = cat(2,cells.get_embryoID(embryoID).area_sm);
+        
         switch i
             case 1
                 data(55:60,:) = NaN;

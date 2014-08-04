@@ -1,5 +1,6 @@
 %% Auto-correlation analysis
 
+embryoID = 1:5;
 wt = 20;
 
 %%
@@ -8,18 +9,18 @@ wt = 20;
 
 for i = 1:num_embryos
 
-    m_ac{i} = nanxcorr(myosins_sm,myosins_sm,wt);
+    m_ac{i} = nanxcorr(myosins_sm(:,ismember([IDs.which],embryoID)),myosins_sm(:,ismember([IDs.which],embryoID)),wt);
     m_ac{i} = m_ac{i}(:,wt+1:end);
-    mr_ac{i} = nanxcorr(myosins_rate,myosins_rate,wt);
+    mr_ac{i} = nanxcorr(myosins_rate(:,ismember([IDs.which],embryoID)),myosins_rate(:,ismember([IDs.which],embryoID)),wt);
     mr_ac{i} = mr_ac{i}(:,wt+1:end);
     mr_ac{i} = delete_nan_rows(mr_ac{i},1);
 
     % a_ac = area autocorrelation
     % ar_ac = area rate autocorrelation
 
-    a_ac{i} = nanxcorr(areas_sm,areas_sm,wt);
+    a_ac{i} = nanxcorr(areas_sm(:,ismember([IDs.which],embryoID)),areas_sm(:,ismember([IDs.which],embryoID)),wt);
     a_ac{i} = a_ac{i}(:,wt+1:end);
-    ar_ac{i} = nanxcorr(areas_rate,areas_rate,wt);
+    ar_ac{i} = nanxcorr(areas_rate(:,ismember([IDs.which],embryoID)),areas_rate(:,ismember([IDs.which],embryoID)),wt);
     ar_ac{i} = ar_ac{i}(:,wt+1:end);
     ar_ac{i} = delete_nan_rows(ar_ac{i},1);
     
