@@ -84,7 +84,7 @@ end
 for i = 1:numel(movie_frames)
     F = zeros(box(4)+1,box(3)+1,3);
     
-    % Load specified channels
+    % Load specified channels from EDGE folder
     for j = 1:numel(channels)
         
         p = pwd;
@@ -107,6 +107,7 @@ for i = 1:numel(movie_frames)
         cd(p);
         
     end
+    
     % Make sure that there is at least one frame at which there is an EDGE
     % tracking of the specified cell
     if all(~isnan(vx{frames(i)}))
@@ -121,7 +122,7 @@ for i = 1:numel(movie_frames)
                 mask = mask(:,:,ones(1,3));
                 foo = measurement(frames(i),:);
                 foo = shiftdim(foo,-1);
-                mask = mask.*foo(ones(size(mask,1),1),ones(size(mask,2),1),:);
+                mask = mask.*foo(ones(size(mask)),:);
                 F = F + mask;
             else
                 mask = mask*measurement(frames(i));

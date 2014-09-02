@@ -39,7 +39,6 @@ end
 %% Visualizing mean properties
 
 name2plot = 'myosin_intensity';
-
 figure, clear H
 embryoID_OI = [1:5];
 
@@ -59,10 +58,11 @@ for i = 1:numel( embryoID_OI )
     embryoID = embryoID_OI(i);
     
     time = embryo_stack(embryoID).dev_time;
-    data = embryo_stack(embryoID).(name2plot);
-    data = data / nanmax(data(:));
+%     data = embryo_stack(embryoID).(name2plot);
+%     data = data / nanmax(data(:));
 %     time = cat(2,cells.get_embryoID(embryoID).dev_time);
 %     data = cat(2,cells.get_embryoID(embryoID).area_sm);
+%     data = (:,[cells_wt.embryoID] == i);
         
         switch i
             case 1

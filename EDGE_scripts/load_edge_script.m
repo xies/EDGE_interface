@@ -500,7 +500,7 @@ myosins = extract_msmt_data(stack2load,'myosin intensity','on',in);
 % myosin_deviation = extract_msmt_data(stack2load,'deviation from centroid','on',in);
 % myosin_span_x = extract_msmt_data(stack2load,'span-x','on',in);
 % myosin_span_y = extract_msmt_data(stack2load,'span-y','on',in);
-% myosin_perc = extract_msmt_data(stack2load,'# cells connected by myosin','on',in);
+myosin_perc = extract_msmt_data(stack2load,'# cells connected by myosin','on',in);
 
 myosins_sm = smooth2a(squeeze(myosins),2,0);
 % myosins_fuzzy_sm = smooth2a(squeeze(myosins_fuzzy),1,0);
