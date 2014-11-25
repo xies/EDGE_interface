@@ -276,71 +276,6 @@ input(14).last_segmented = 95;
 % input(12).fixed = 0;
 % input(12).last_segmented = 45;
 
-% princeton dataset
-input_princeton(1).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/Twist RNAi Series006/Measurements';
-input_princeton(1).zslice = 1;
-input_princeton(1).actual_z = 7;
-input_princeton(1).tref = 50;
-input_princeton(1).t0 = 0;
-input_princeton(1).ignore_list = []; %embryo4
-input_princeton(1).dt = 8;
-input_princeton(1).um_per_px = 0.141;
-input_princeton(1).X = 1024; 
-input_princeton(1).Y = 380;
-input_princeton(1).T = 100;
-input_princeton(1).yref = 0; %um
-input_princeton(1).embryoID = 1;
-input_princeton(1).fixed = 0;
-input_princeton(1).last_segmented = 100;
-
-input_princeton(2).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/Twist RNAi Series022/Measurements';
-input_princeton(2).zslice = 1;
-input_princeton(2).actual_z = 7;
-input_princeton(2).tref = 50;
-input_princeton(2).t0 = 0;
-input_princeton(2).ignore_list = [];
-input_princeton(2).dt = 8;
-input_princeton(2).um_per_px = 0.141;
-input_princeton(2).X = 1024;
-input_princeton(2).Y = 380;
-input_princeton(2).T = 70;
-input_princeton(2).yref = 0; %um
-input_princeton(2).embryoID = 2;
-input_princeton(2).fixed = 0;
-input_princeton(2).last_segmented = 70;
-
-input_princeton(3).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/Control Inject Series001/Measurements';
-input_princeton(3).zslice = 1;
-input_princeton(3).actual_z = 8;
-input_princeton(3).tref = 25;
-input_princeton(3).t0 = 0;
-input_princeton(3).ignore_list = [];
-input_princeton(3).dt = 8;
-input_princeton(3).um_per_px = 0.141;
-input_princeton(3).X = 1000;
-input_princeton(3).Y = 400;
-input_princeton(3).T = 90;
-input_princeton(3).yref = 0; %um
-input_princeton(3).embryoID = 3;
-input_princeton(3).fixed = 0;
-input_princeton(3).last_segmented = 90;
-
-input_princeton(4).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/Control Inject Series002/Measurements';
-input_princeton(4).zslice = 1;
-input_princeton(4).actual_z = 8;
-input_princeton(4).tref = 25;
-input_princeton(4).t0 = 0;
-input_princeton(4).ignore_list = [];
-input_princeton(4).dt = 8;
-input_princeton(4).um_per_px = 0.180;
-input_princeton(4).X = 1000;
-input_princeton(4).Y = 400;
-input_princeton(4).T = 60;
-input_princeton(4).yref = 0; %um
-input_princeton(4).embryoID = 4;
-input_princeton(4).fixed = 0;
-input_princeton(4).last_segmented = 55;
-
 % input_rok(1).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/080213 RokGap 1/Measurements';
 % input_rok(1).zslice = 2;
 % input_rok(1).actual_z = 4;
@@ -356,6 +291,89 @@ input_princeton(4).last_segmented = 55;
 % input_rok(1).T = 80;
 % input_rok(1).fixed = 0;
 % input_rok(1).embryoID = 1;
+
+%% princeton dataset
+
+clear input_gap
+input_gap(1).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/RhoGEF71E 07-09-2014-4/Measurements';
+input_gap(1).zslice = 1;
+input_gap(1).actual_z = 7;
+input_gap(1).tref = 1;
+input_gap(1).t0 = 0;
+input_gap(1).ignore_list = []; %embryo4
+input_gap(1).dt = 12.96; %embryo4
+input_gap(1).um_per_px = 0.141;
+input_gap(1).X = 1000; 
+input_gap(1).Y = 500;
+input_gap(1).T = 65;
+input_gap(1).yref = 0; %um
+input_gap(1).embryoID = 1;
+input_gap(1).fixed = 0;
+input_gap(1).last_segmented = 60;
+
+input_gap(2).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/White 10/Measurements';
+input_gap(2).zslice = 1;
+input_gap(2).actual_z = 6;
+input_gap(2).tref = 1;
+input_gap(2).t0 = 0;
+input_gap(2).ignore_list = []; %embryo4
+input_gap(2).dt = 8.3; %embryo4
+input_gap(2).um_per_px = 0.141;
+input_gap(2).X = 1000; 
+input_gap(2).Y = 500;
+input_gap(2).T = 55;
+input_gap(2).yref = 0; %um
+input_gap(2).embryoID = 2;
+input_gap(2).fixed = 0;
+input_gap(2).last_segmented = 55;
+
+input_gap(3).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/White 3/Measurements';
+input_gap(3).zslice = 1;
+input_gap(3).actual_z = 6;
+input_gap(3).tref = 1;
+input_gap(3).t0 = 0;
+input_gap(3).ignore_list = []; %embryo4
+input_gap(3).dt = 13.036; %embryo4
+input_gap(3).um_per_px = 0.141;
+input_gap(3).X = 1000; 
+input_gap(3).Y = 500;
+input_gap(3).T = 28;
+input_gap(3).yref = 0; %um
+input_gap(3).embryoID = 3;
+input_gap(3).fixed = 0;
+input_gap(3).last_segmented = 28;
+
+% input_gap(4).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/White 7/Measurements';
+% input_gap(4).zslice = 1;
+% input_gap(4).actual_z = 6;
+% input_gap(4).tref = 1;
+% input_gap(4).t0 = 0;
+% input_gap(4).ignore_list = []; %embryo4
+% input_gap(4).dt = 12.94; %embryo4
+% input_gap(4).um_per_px = 0.141;
+% input_gap(4).X = 1000; 
+% input_gap(4).Y = 500;
+% input_gap(4).T = 30;
+% input_gap(4).yref = 0; %um
+% input_gap(4).embryoID = 4;
+% input_gap(4).fixed = 0;
+% input_gap(4).last_segmented = 28;
+% 
+% input_gap(5).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/White 8/Measurements';
+% input_gap(5).zslice = 1;
+% input_gap(5).actual_z = 6;
+% input_gap(5).tref = 1;
+% input_gap(5).t0 = 0;
+% input_gap(5).ignore_list = []; %embryo4
+% input_gap(5).dt = 12.94; %embryo4
+% input_gap(5).um_per_px = 0.141;
+% input_gap(5).X = 1000; 
+% input_gap(5).Y = 500;
+% input_gap(5).T = 30;
+% input_gap(5).yref = 0; %um
+% input_gap(5).embryoID = 5;
+% input_gap(5).fixed = 0;
+% input_gap(5).last_segmented = 30;
 
 msmts2make = {'membranes--basic_2d--area', ...
     'Membranes--vertices--Vertex-y','Membranes--vertices--Vertex-x',...
@@ -387,24 +405,16 @@ msmts2make_rok = {'membranes--basic_2d--area', ...
     'RhoKinaseThresholded--rok_intensity_th--Rok_th - center of mass - y',...
     'RhoKinaseThresholded--rok_intensity_th--Rok_th - radial moment'};
 
-msmts2make_princeton = { ...
+msmts2make_gap = { ...
     'Membranes--basic_2d--area', ...
     'Membranes--vertices--Vertex-x','Membranes--vertices--Vertex-y', ...
     'Membranes--basic_2d--Centroid-x','Membranes--basic_2d--Centroid-y',...
-    'Myosin--myosin_intensity--Myosin intensity' ...
-    };
-
-msmts2make_twi = { ...
-    'Membranes--basic_2d--area', ...
-    'Membranes--vertices--Vertex-x','Membranes--vertices--Vertex-y', ...
-    'Membranes--basic_2d--Centroid-x','Membranes--basic_2d--Centroid-y',...
-    'Myosin--myosin_intensity--Myosin intensity', ...
-    'Membranes--vertices--identity of neighbors-all'...
+    'Myosin--myosin_intensity--Myosin intensity'...
     };
 
 %% Load data (will beep when done)
 
-EDGEstack = load_edge_data({input.folder2load},msmts2make_twi{:});
+EDGEstack = load_edge_data({input.folder2load},msmts2make{:});
 % EDGEstack_cta = load_edge_data({input_cta.folder2load},msmts2make{:});
 % EDGEstack_princeton = load_edge_data({input_princeton.folder2load},msmts2make_princeton{:});
 % EDGEstack_twi = load_edge_data({input_twi.folder2load},msmts2make_twi{:});
@@ -413,7 +423,7 @@ beep;
 
 %% Select which stack to load (esp. if there are multiple types of embryos)
 
-in = input;
+in = input_gap;
 stack2load = EDGEstack;
 
 %% Load into various stand-alone files (e.g. areas, myosins)
@@ -424,9 +434,9 @@ num_embryos = numel(in);
 [areas,IDs,dev_time] = extract_msmt_data(stack2load,'area','on',in);
 centroids_x = extract_msmt_data(stack2load,'centroid-x','on',in);
 centroids_y = extract_msmt_data(stack2load,'centroid-y','on',in);
-neighborID = extract_msmt_data(stack2load,'identity of neighbors-all','off',in);
-vertices_x = extract_msmt_data(stack2load,'vertex-x','off',in);
-vertices_y = extract_msmt_data(stack2load,'vertex-y','off',in);
+% neighborID = extract_msmt_data(stack2load,'identity of neighbors-all','off',in);
+% vertices_x = extract_msmt_data(stack2load,'vertex-x','off',in);
+% vertices_y = extract_msmt_data(stack2load,'vertex-y','off',in);
 % majors = extract_msmt_data(stack2load,'major axis','on',input);
 % minors = extract_msmt_data(stack2load,'minor axis','on',input);
 % % orientations = extract_msmt_data(stack2load,'identity of neighbors','off',input);

@@ -8,11 +8,11 @@ wt = 20;
 
 for i = 1:num_embryos
 
-    m_ac{i} = nanxcorr(myosins_sm,myosins_sm,wt);
-    m_ac{i} = m_ac{i}(:,wt+1:end);
-    mr_ac{i} = nanxcorr(myosins_rate,myosins_rate,wt);
-    mr_ac{i} = mr_ac{i}(:,wt+1:end);
-    mr_ac{i} = delete_nan_rows(mr_ac{i},1);
+    m_ac{i} = nanxcorr(myosins_sm(:,[IDs.which] == i),myosins_sm(:,[IDs.which] == i),wt);
+%     m_ac{i} = m_ac{i}(:,wt+1:end);
+    mr_ac{i} = nanxcorr(myosins_rate(:,[IDs.which] == i),myosins_rate(:,[IDs.which] == i),wt);
+%     mr_ac{i} = mr_ac{i}(:,wt+1:end);
+%     mr_ac{i} = delete_nan_rows(mr_ac{i},1);
 
     % a_ac = area autocorrelation
     % ar_ac = area rate autocorrelation
