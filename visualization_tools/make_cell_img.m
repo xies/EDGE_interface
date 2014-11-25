@@ -40,16 +40,16 @@ else % live image
     vy = h.vy(:,cellID);
 end
 
-% Check for number of channels. If > 3, then cannot use RGB.
-if numel(channels) > 3, error('Cannot display more than 3 channels');
-elseif numel(channels) == 3 && isfield(h,'measurement')
-    error('Cannot display the 3 specified channels as well as an additional measurement.');
-end
+% % Check for number of channels. If > 3, then cannot use RGB.
+% if numel(channels) > 3, error('Cannot display more than 3 channels');
+% elseif numel(channels) == 3 && isfield(h,'measurement')
+%     error('Cannot display the 3 specified channels as well as an additional measurement.');
+% end
 
 % Colored measurements? AKA the .measurement field is a RGB matrix
 if isfield(h,'measurement')
 	measurement = h.measurement;
-    measurement = measurement./nanmax(measurement(:)).*240;
+    measurement = measurement./nanmax(measurement(:)).*2^8/2;
     if size(measurement,2) == 3
         colorized = 1;
     else
@@ -84,7 +84,7 @@ end
 for i = 1:numel(movie_frames)
     F = zeros(box(4)+1,box(3)+1,3);
     
-    % Load specified channels
+    % Load specified channels from EDGE folder
     for j = 1:numel(channels)
         
         p = pwd;
@@ -107,6 +107,7 @@ for i = 1:numel(movie_frames)
         cd(p);
         
     end
+    
     % Make sure that there is at least one frame at which there is an EDGE
     % tracking of the specified cell
     if all(~isnan(vx{frames(i)}))
@@ -119,9 +120,9 @@ for i = 1:numel(movie_frames)
             % make colored polygon if measurement is 3-channels
             if colorized
                 mask = mask(:,:,ones(1,3));
-                foo = measurement(frames(i),:);
-                foo = shiftdim(foo,-1);
-                mask = mask.*foo(ones(size(mask,1),1),ones(size(mask,2),1),:);
+                foo = squeeze(measurement(frames(i),:));
+%                 foo = shiftdim(foo,-1);
+                mask = mask.*foo(1);
                 F = F + mask;
             else
                 mask = mask*measurement(frames(i));

@@ -114,7 +114,7 @@ input(5).last_segmented = 125;
 input(6).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/Twist RNAi Series006/Measurements';
 input(6).zslice = 1;
 input(6).actual_z = 7;
-input(6).tref = 50;
+input(6).tref = 1;
 input(6).t0 = 0;
 input(6).ignore_list = []; %embryo4
 input(6).dt = 8;
@@ -130,7 +130,7 @@ input(6).last_segmented = 100;
 input(7).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/Twist RNAi Series022/Measurements';
 input(7).zslice = 1;
 input(7).actual_z = 7;
-input(7).tref = 50;
+input(7).tref = 10;
 input(7).t0 = 0;
 input(7).ignore_list = [];
 input(7).dt = 8;
@@ -178,7 +178,7 @@ input(9).last_segmented = 80;
 input(10).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/01-24-2014 twi RNAi SqhGap 5/Measurements';
 input(10).zslice = 2;
 input(10).actual_z = 7;
-input(10).tref = 1;
+input(10).tref = 15;
 input(10).t0 = 0;
 input(10).ignore_list = [];
 input(10).dt = 7.56;
@@ -228,11 +228,11 @@ input(12).last_segmented = 59;
 input(13).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/02-12-2014 Control SqhGap 2/Measurements';
 input(13).zslice = 1;
 input(13).actual_z = 8;
-input(13).tref = 15;
+input(13).tref = 30;
 input(13).t0 = 0;
 input(13).ignore_list = [];
-input(13).dt = 6.789;
-input(13).um_per_px = 0.19385;
+input(13).dt = 8;
+input(13).um_per_px = 0.141;
 input(13).X = 1000;
 input(13).Y = 400;
 input(13).T = 82;
@@ -241,40 +241,71 @@ input(13).embryoID = 13;
 input(13).fixed = 0;
 input(13).last_segmented = 80;
 
-
-% % cta
-
-input(14).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/cta_11_10_12/Measurements';
+input(14).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/Control inject Series001/Measurements';
 input(14).zslice = 1;
-input(14).actual_z = 5;
+input(14).actual_z = 8;
 input(14).tref = 40;
-input(14).t0 = 14;
+input(14).t0 = 0;
 input(14).ignore_list = [];
-input(14).dt = 6.804;
-input(14).um_per_px = 0.2125;
+input(14).dt = 6.789;
+input(14).um_per_px = 0.19385;
 input(14).X = 1000;
 input(14).Y = 400;
-input(14).T = 100;
+input(14).T = 82;
 input(14).yref = 0; %um
 input(14).embryoID = 14;
 input(14).fixed = 0;
-input(14).last_segmented = 95;
+input(14).last_segmented = 80;
+
+input(15).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/Control inject Series002/Measurements';
+input(15).zslice = 1;
+input(15).actual_z = 8;
+input(15).tref = 1;
+input(15).t0 = 0;
+input(15).ignore_list = [];
+input(15).dt = 6.789;
+input(15).um_per_px = 0.19385;
+input(15).X = 1000;
+input(15).Y = 400;
+input(15).T = 82;
+input(15).yref = 0; %um
+input(15).embryoID = 15;
+input(15).fixed = 0;
+input(15).last_segmented = 50;
+
+% cta
+
+input(16).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/cta_11_10_12/Measurements';
+input(16).zslice = 1;
+input(16).actual_z = 6;
+input(16).tref = 16;
+input(16).t0 = 0;
+input(16).ignore_list = [];
+input(16).dt = 6.804;
+input(16).um_per_px = 0.2125;
+input(16).X = 1000;
+input(16).Y = 400;
+input(16).T = 100;
+input(16).yref = 0; %um
+input(16).embryoID = 16;
+input(16).fixed = 0;
+input(16).last_segmented = 95;
 % 
-% input(12).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/cta_1_29_13_3/Measurements';
-% input(12).zslice = 1;
-% input(12).actual_z = 6;
-% input(12).tref = 15;
-% input(12).t0 = 0;
-% input(12).ignore_list = [];
-% input(12).dt = 7.5;
-% input(12).um_per_px = 0.1812;
-% input(12).X = 1000;
-% input(12).Y = 400;
-% input(12).T = 45;
-% input(12).yref = 0; %um
-% input(12).embryoID = 12;
-% input(12).fixed = 0;
-% input(12).last_segmented = 45;
+input(17).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/06-03-2014 alphaCat SqhGFP GapmCh 1/Measurements';
+input(17).zslice = 1;
+input(17).actual_z = 6;
+input(17).tref = 15;
+input(17).t0 = 0;
+input(17).ignore_list = [];
+input(17).dt = 7.46;
+input(17).um_per_px = 0.1812;
+input(17).X = 1000;
+input(17).Y = 400;
+input(17).T = 100;
+input(17).yref = 0; %um
+input(17).embryoID = 17;
+input(17).fixed = 0;
+input(17).last_segmented = 100;
 
 % input_rok(1).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/080213 RokGap 1/Measurements';
 % input_rok(1).zslice = 2;
@@ -377,9 +408,9 @@ input_gap(3).last_segmented = 28;
 
 msmts2make = {'membranes--basic_2d--area', ...
     'Membranes--vertices--Vertex-y','Membranes--vertices--Vertex-x',...
-    'Membranes--vertices--Vertex-y-micron','Membranes--vertices--Vertex-x-micron',...
     'Membranes--basic_2d--Centroid-x','Membranes--basic_2d--Centroid-y',...
     'Membranes--vertices--Identity of neighbors-all', ...
+    'Membranes--vertices--Identity of neighbors', ...
     'Myosin--myosin_intensity--Myosin intensity',...
     'Myosin--myosin_intensity--Myosin intensity fuzzy',...
     'Myosin--myosin_radial--Ring 1',...
@@ -387,7 +418,8 @@ msmts2make = {'membranes--basic_2d--area', ...
     'Myosin--myosin_radial--Ring 3',...
     'Myosin--myosin_radial--Inside',...
     'Myosin--myosin_structure--fraction of cell area',...
-    'Myosin--myosin_structure--fraction of coronal area'
+    'Myosin--myosin_structure--fraction of coronal area',...
+    'Myosin--myosin_structure--# cells connected by myosin' ...
     };
 
 msmts2make_rok = {'membranes--basic_2d--area', ...
@@ -409,7 +441,14 @@ msmts2make_gap = { ...
     'Membranes--basic_2d--area', ...
     'Membranes--vertices--Vertex-x','Membranes--vertices--Vertex-y', ...
     'Membranes--basic_2d--Centroid-x','Membranes--basic_2d--Centroid-y',...
+<<<<<<< HEAD
     'Myosin--myosin_intensity--Myosin intensity'...
+=======
+    'Myosin--myosin_intensity--Myosin intensity', ...
+    'Myosin--myosin_structure--# cells connected by myosin', ...
+    'Membranes--vertices--identity of neighbors',...
+    'Membranes--vertices--identity of neighbors-all'...
+>>>>>>> FETCH_HEAD
     };
 
 %% Load data (will beep when done)
@@ -423,8 +462,13 @@ beep;
 
 %% Select which stack to load (esp. if there are multiple types of embryos)
 
+<<<<<<< HEAD
 in = input_gap;
 stack2load = EDGEstack;
+=======
+in = input;
+stack2load = EDGEstack(1:end,:);
+>>>>>>> FETCH_HEAD
 
 %% Load into various stand-alone files (e.g. areas, myosins)
 
@@ -434,9 +478,15 @@ num_embryos = numel(in);
 [areas,IDs,dev_time] = extract_msmt_data(stack2load,'area','on',in);
 centroids_x = extract_msmt_data(stack2load,'centroid-x','on',in);
 centroids_y = extract_msmt_data(stack2load,'centroid-y','on',in);
+<<<<<<< HEAD
 % neighborID = extract_msmt_data(stack2load,'identity of neighbors-all','off',in);
 % vertices_x = extract_msmt_data(stack2load,'vertex-x','off',in);
 % vertices_y = extract_msmt_data(stack2load,'vertex-y','off',in);
+=======
+neighborID = extract_msmt_data(stack2load,'identity of neighbors','off',in);
+vertices_x = extract_msmt_data(stack2load,'vertex-x','off',in);
+vertices_y = extract_msmt_data(stack2load,'vertex-y','off',in);
+>>>>>>> FETCH_HEAD
 % majors = extract_msmt_data(stack2load,'major axis','on',input);
 % minors = extract_msmt_data(stack2load,'minor axis','on',input);
 % % orientations = extract_msmt_data(stack2load,'identity of neighbors','off',input);
@@ -477,7 +527,7 @@ myosins = extract_msmt_data(stack2load,'myosin intensity','on',in);
 % myosin_deviation = extract_msmt_data(stack2load,'deviation from centroid','on',in);
 % myosin_span_x = extract_msmt_data(stack2load,'span-x','on',in);
 % myosin_span_y = extract_msmt_data(stack2load,'span-y','on',in);
-% coronal_myosins = get_corona_measurement(myosins,neighborID);
+myosin_perc = extract_msmt_data(stack2load,'# cells connected by myosin','on',in);
 
 myosins_sm = smooth2a(squeeze(myosins),2,0);
 % myosins_fuzzy_sm = smooth2a(squeeze(myosins_fuzzy),1,0);

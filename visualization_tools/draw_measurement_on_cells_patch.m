@@ -97,7 +97,7 @@ for i = 1:num_frames
         end
     end
     title(handle.title)
-    caxis([min_measurement max_measurement])
+%     caxis([min_measurement max_measurement])
 %     colorbar
     drawnow;
     F(i) = getframe(gcf);

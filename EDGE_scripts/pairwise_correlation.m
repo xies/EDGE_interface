@@ -1,29 +1,23 @@
-%% Generate "physical distance" between cells
 
-ref_time = 100;
+embryoID = 1:5;
 
-physical_distance = nan(sum(num_cells));
-for i = 1:sum(num_cells)
-    for j = 1:sum(num_cells)
-        physical_distance(i,j) = nanmean( sqrt(...
-            (centroids_x(ref_time,i) - centroids_x(ref_time,j))^2 + ...
-            (centroids_y(ref_time,i) - centroids_y(ref_time,j))^2));
-    end
+cellsOI = cells.get_embryoID(embryoID);
+
+%%
+
+adj = cell(1,numel(embryoID));
+
+for i = 1:numel(embryoID)
+    adj{i} = cellsOI.get_embryoID(i).get_adjacency_matrix;
+    adj{i} = squeeze( adj{i}(:,:,input(i).tref) );
 end
 
-physical_distance = delete_off_embryo_interaction(physical_distance,IDs);
-
-%% Generate the adjacency matrix
-
-adj = adjacency_matrix(neighborID(:,[IDs.which] == 6),1);
-% angles = rad_flip_quadrant(get_neighbor_angle(centroids_x,centroids_y,1));
-% horizontal_adj = adj; horizontal_adj(abs(angles) > pi/6) = NaN;
-% vertical_adj = adj; vertical_adj(abs(angles) < pi/6) = NaN;
+adj = blkdiag(adj{:});
 
 %% Myosin correlation distance
 
 Dm = squareform(pdist( ...
-    myosin(1:end,1:sum(num_cells(1:5)))',@(x,y) nan_pearsoncorr(x,y,4)));
+    myosins_rate(1:end,1:sum(num_cells(1:5)))',@(x,y) nan_pearsoncorr(x,y,4)));
 
 %% Dm - lower triangular matrix; mcorr_dist - lower triangular matrix without
 % neighbor_map terms
@@ -35,7 +29,7 @@ Dm(logical(eye(sum(num_cells(1:5))))) = NaN;
 mcorr_dist_neighbors = Dm.*neighbor_map;
 % mcorr_dist_vneighbors = Dm.*vertical_adj;
 % mcorr_dist_hneighbors = Dm.*horizontal_adj;
-mcorr_dist_neighbors(logical(triu( ones(474) ))) = NaN;
+mcorr_dist_neighbors(logical(tril( ones(474) ))) = NaN;
 % mcorr_dist_hneighbors(logical(triu(ones(sum(num_cells))))) = NaN;
 % mcorr_dist_vneighbors(logical(triu(ones(sum(num_cells))))) = NaN;
 
@@ -43,9 +37,10 @@ mcorr_dist_neighbors(logical(triu( ones(474) ))) = NaN;
 Dm(logical(tril(ones( 474 )))) = NaN;
 % Delete neighbor-pairs
 mcorr_dist = Dm;
-mcorr_dist(~isnan(neighbor_map)) = NaN;
 % Delete off-embryo blocks
 mcorr_dist = delete_off_embryo_interaction(mcorr_dist,IDs(1:474));
+
+mcorr_dist_neighbors(neighbor_map == 0) = NaN;
 
 %%
 % Get CDF for all pairs
@@ -83,3 +78,25 @@ figure,hist(acorr_dist(:));
 acorr_dist_neighbors = acorr_dist.*adj;
 figure,pcolor(acorr_dist_neighbors),shading flat
 figure,hist(acorr_dist_neighbors(:))
+
+%% Generate "physical distance" between cells
+% 
+% ref_time = 100;
+% 
+% physical_distance = nan(sum(num_cells));
+% for i = 1:sum(num_cells)
+%     for j = 1:sum(num_cells)
+%         physical_distance(i,j) = nanmean( sqrt(...
+%             (centroids_x(ref_time,i) - centroids_x(ref_time,j))^2 + ...
+%             (centroids_y(ref_time,i) - centroids_y(ref_time,j))^2));
+%     end
+% end
+% 
+% physical_distance = delete_off_embryo_interaction(physical_distance,IDs);
+% 
+% %% Generate the adjacency matrix
+% 
+% % adj = adjacency_matrix(neighborID(:,[IDs.which] < 6),1);
+% % angles = rad_flip_quadrant(get_neighbor_angle(centroids_x,centroids_y,1));
+% % horizontal_adj = adj; horizontal_adj(abs(angles) > pi/6) = NaN;
+% % vertical_adj = adj; vertical_adj(abs(angles) < pi/6) = NaN;

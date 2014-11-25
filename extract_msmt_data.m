@@ -56,9 +56,9 @@ for i = 1:num_embryos
         data = cellfun(@(x) add_to_pos(x,sum(num_cells)), data,'UniformOutput',false);
     end
     % Special case for centroid-y -- subtract yref
-    if strcmpi(name_to_extract,'centroid-y')
-        data = data - input(i).yref;
-    end
+%     if strcmpi(name_to_extract,'centroid-y')
+%         data = data - input(i).yref;
+%     end
     
     num_cells(i) = size(data,3);
     if nargin <= 3, slice_range = 1; end
