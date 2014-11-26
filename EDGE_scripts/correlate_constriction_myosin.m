@@ -5,13 +5,8 @@
 
 wt = 10;
 correlations = nanxcorr( ...
-<<<<<<< HEAD
     myosins_rate(:,[IDs.which] == 2), ...
     areas_rate(:,[IDs.which] == 2),wt,1);
-=======
-    myosins_rate(:,[IDs.which] < 6), ...
-    cell_displacements(:,[IDs.which] <6),wt,1);
->>>>>>> FETCH_HEAD
 % [correlations,no_nan_cells] = delete_nan_rows(correlations,2);
 
 %% Plot myosin, area, rates and average correlation

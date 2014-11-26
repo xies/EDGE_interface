@@ -374,37 +374,37 @@ input_gap(3).embryoID = 3;
 input_gap(3).fixed = 0;
 input_gap(3).last_segmented = 28;
 
-% input_gap(4).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/White 7/Measurements';
-% input_gap(4).zslice = 1;
-% input_gap(4).actual_z = 6;
-% input_gap(4).tref = 1;
-% input_gap(4).t0 = 0;
-% input_gap(4).ignore_list = []; %embryo4
-% input_gap(4).dt = 12.94; %embryo4
-% input_gap(4).um_per_px = 0.141;
-% input_gap(4).X = 1000; 
-% input_gap(4).Y = 500;
-% input_gap(4).T = 30;
-% input_gap(4).yref = 0; %um
-% input_gap(4).embryoID = 4;
-% input_gap(4).fixed = 0;
-% input_gap(4).last_segmented = 28;
-% 
-% input_gap(5).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/White 8/Measurements';
-% input_gap(5).zslice = 1;
-% input_gap(5).actual_z = 6;
-% input_gap(5).tref = 1;
-% input_gap(5).t0 = 0;
-% input_gap(5).ignore_list = []; %embryo4
-% input_gap(5).dt = 12.94; %embryo4
-% input_gap(5).um_per_px = 0.141;
-% input_gap(5).X = 1000; 
-% input_gap(5).Y = 500;
-% input_gap(5).T = 30;
-% input_gap(5).yref = 0; %um
-% input_gap(5).embryoID = 5;
-% input_gap(5).fixed = 0;
-% input_gap(5).last_segmented = 30;
+input_gap(4).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/White 7/Measurements';
+input_gap(4).zslice = 1;
+input_gap(4).actual_z = 6;
+input_gap(4).tref = 1;
+input_gap(4).t0 = 0;
+input_gap(4).ignore_list = []; %embryo4
+input_gap(4).dt = 12.94; %embryo4
+input_gap(4).um_per_px = 0.141;
+input_gap(4).X = 1000; 
+input_gap(4).Y = 500;
+input_gap(4).T = 30;
+input_gap(4).yref = 0; %um
+input_gap(4).embryoID = 4;
+input_gap(4).fixed = 0;
+input_gap(4).last_segmented = 28;
+
+input_gap(5).folder2load = '~/Documents/MATLAB/EDGE-1.06/DATA_GUI/White 8/Measurements';
+input_gap(5).zslice = 1;
+input_gap(5).actual_z = 6;
+input_gap(5).tref = 1;
+input_gap(5).t0 = 0;
+input_gap(5).ignore_list = []; %embryo4
+input_gap(5).dt = 12.94; %embryo4
+input_gap(5).um_per_px = 0.141;
+input_gap(5).X = 1000; 
+input_gap(5).Y = 500;
+input_gap(5).T = 30;
+input_gap(5).yref = 0; %um
+input_gap(5).embryoID = 5;
+input_gap(5).fixed = 0;
+input_gap(5).last_segmented = 30;
 
 msmts2make = {'membranes--basic_2d--area', ...
     'Membranes--vertices--Vertex-y','Membranes--vertices--Vertex-x',...
@@ -439,21 +439,14 @@ msmts2make_rok = {'membranes--basic_2d--area', ...
 
 msmts2make_gap = { ...
     'Membranes--basic_2d--area', ...
-    'Membranes--vertices--Vertex-x','Membranes--vertices--Vertex-y', ...
     'Membranes--basic_2d--Centroid-x','Membranes--basic_2d--Centroid-y',...
-<<<<<<< HEAD
     'Myosin--myosin_intensity--Myosin intensity'...
-=======
-    'Myosin--myosin_intensity--Myosin intensity', ...
-    'Myosin--myosin_structure--# cells connected by myosin', ...
-    'Membranes--vertices--identity of neighbors',...
-    'Membranes--vertices--identity of neighbors-all'...
->>>>>>> FETCH_HEAD
+    'Myosin--myosin_intensity--Myosin intensity' ...
     };
 
 %% Load data (will beep when done)
 
-EDGEstack = load_edge_data({input.folder2load},msmts2make{:});
+EDGEstack = load_edge_data({input_gap.folder2load},msmts2make_gap{:});
 % EDGEstack_cta = load_edge_data({input_cta.folder2load},msmts2make{:});
 % EDGEstack_princeton = load_edge_data({input_princeton.folder2load},msmts2make_princeton{:});
 % EDGEstack_twi = load_edge_data({input_twi.folder2load},msmts2make_twi{:});
@@ -462,13 +455,8 @@ beep;
 
 %% Select which stack to load (esp. if there are multiple types of embryos)
 
-<<<<<<< HEAD
 in = input_gap;
 stack2load = EDGEstack;
-=======
-in = input;
-stack2load = EDGEstack(1:end,:);
->>>>>>> FETCH_HEAD
 
 %% Load into various stand-alone files (e.g. areas, myosins)
 
@@ -478,15 +466,9 @@ num_embryos = numel(in);
 [areas,IDs,dev_time] = extract_msmt_data(stack2load,'area','on',in);
 centroids_x = extract_msmt_data(stack2load,'centroid-x','on',in);
 centroids_y = extract_msmt_data(stack2load,'centroid-y','on',in);
-<<<<<<< HEAD
 % neighborID = extract_msmt_data(stack2load,'identity of neighbors-all','off',in);
 % vertices_x = extract_msmt_data(stack2load,'vertex-x','off',in);
 % vertices_y = extract_msmt_data(stack2load,'vertex-y','off',in);
-=======
-neighborID = extract_msmt_data(stack2load,'identity of neighbors','off',in);
-vertices_x = extract_msmt_data(stack2load,'vertex-x','off',in);
-vertices_y = extract_msmt_data(stack2load,'vertex-y','off',in);
->>>>>>> FETCH_HEAD
 % majors = extract_msmt_data(stack2load,'major axis','on',input);
 % minors = extract_msmt_data(stack2load,'minor axis','on',input);
 % % orientations = extract_msmt_data(stack2load,'identity of neighbors','off',input);
@@ -498,7 +480,7 @@ areas_sm = smooth2a(areas,1,0);
 % rok_sm = smooth2a(squeeze(rok),1,0);
 % coronal_areas_sm = smooth2a(coronal_areas,1,0);
 
-areas_rate = -central_diff_multi(areas_sm,1:num_frames);
+areas_rate = -central_diff_multi(areas_sm,dev_time([IDs.which],:));
 % anisotropies_rate = central_diff_multi(anisotropies);
 % coronal_areas_rate = -central_diff_multi(coronal_areas_sm);
 
@@ -527,11 +509,11 @@ myosins = extract_msmt_data(stack2load,'myosin intensity','on',in);
 % myosin_deviation = extract_msmt_data(stack2load,'deviation from centroid','on',in);
 % myosin_span_x = extract_msmt_data(stack2load,'span-x','on',in);
 % myosin_span_y = extract_msmt_data(stack2load,'span-y','on',in);
-myosin_perc = extract_msmt_data(stack2load,'# cells connected by myosin','on',in);
+% myosin_perc = extract_msmt_data(stack2load,'# cells connected by myosin','on',in);
 
 myosins_sm = smooth2a(squeeze(myosins),2,0);
 % myosins_fuzzy_sm = smooth2a(squeeze(myosins_fuzzy),1,0);
-myosins_rate = central_diff_multi(myosins_sm,1:num_frames);
+myosins_rate = central_diff_multi(myosins_sm,dev_time([IDs.which],:));
 % myosins_rate_fuzzy = central_diff_multi(myosins_fuzzy_sm,1:num_frames);
 % coronal_myosins_sm = smooth2a(coronal_myosins,1,0);
 % coronal_myosins_rate = central_diff_multi(coronal_myosins_sm);
