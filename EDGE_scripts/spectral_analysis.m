@@ -12,7 +12,7 @@ for i = 1:num_embryos
     for j = 1:numel(cellsOI)
         
         m = central_diff( cellsOI(j).myosin_sm, ...
-                (1:total_frames)*input(1).dt );
+                (1:total_frames)*input(i).dt );
 %         m = cellsOI(j).myosin_sm;
         
 %         keyboard
@@ -26,9 +26,9 @@ end
 
 %%
 
-for i = 1:5
+for i = 6:10
     power = mean( squeeze( abs(K{i}) ),1);
-    semilogy((0:numFFT/2-1)/numFFT/input_gap(i).dt, ...
+    semilogy((0:numFFT/2-1)/numFFT/input(i).dt, ...
         power(1:numFFT/2)/max(power) , ...
         'Color', C(i,:)); hold on;
 end

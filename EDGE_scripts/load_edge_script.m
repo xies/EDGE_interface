@@ -446,7 +446,7 @@ msmts2make_gap = { ...
 
 %% Load data (will beep when done)
 
-EDGEstack = load_edge_data({input_gap.folder2load},msmts2make_gap{:});
+EDGEstack = load_edge_data({input.folder2load},msmts2make{:});
 % EDGEstack_cta = load_edge_data({input_cta.folder2load},msmts2make{:});
 % EDGEstack_princeton = load_edge_data({input_princeton.folder2load},msmts2make_princeton{:});
 % EDGEstack_twi = load_edge_data({input_twi.folder2load},msmts2make_twi{:});
@@ -455,7 +455,7 @@ beep;
 
 %% Select which stack to load (esp. if there are multiple types of embryos)
 
-in = input_gap;
+in = input;
 stack2load = EDGEstack;
 
 %% Load into various stand-alone files (e.g. areas, myosins)
