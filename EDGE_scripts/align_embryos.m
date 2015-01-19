@@ -5,41 +5,41 @@
 split_img_frame = zeros(num_embryos,2); % raw image index
 split_dev_frame = zeros(num_embryos,2); % EDGE index
 
-for embryoID = 16
+for embryoID = 1:2
 
 %     cellOI = cells.get_embryoID(16);
 %     for cellID = 1:numel(cellOI)
         
         % Fit PCCL
         [split_dev_frame ,split_img_frame ,xdata,models,p] = ...
-            fit_PCCL(embryo_stack(embryoID),{'area','myosin_intensity'},1);
+            fit_PCCL(embryo_stack(embryoID),{'area'},1);
 
 % 
 %         figure % Plots both area, myosin, as well as respective PCCL models
-%         ax = plotyy( ...
-%             dev_time(embryoID,:),...
-%             nanmean(embryo_stack(embryoID).area,2), ...
-%             dev_time(embryoID,:),...
-%             nanmean(embryo_stack(embryoID).myosin_intensity,2) ...
-%             );
+        ax = plotyy( ...
+            dev_time(embryoID,:),...
+            nanmean(embryo_stack(embryoID).area,2), ...
+            dev_time(embryoID,:),...
+            nanmean(embryo_stack(embryoID).myosin_intensity,2) ...
+            );
 %         
-%         % hold both axes
-%         set(ax,'NextPlot','add')
-%         plot( ax(1), xdata, models(:,1),'m-');
-%         plot( ax(2), xdata, models(:,2),'r-');
-%         xlabel('Developmental time (sec)')
-%         ylabel('Average apical area (\mum^2)');
-%         ylabel(ax(2),'Myosin intensity');
-%         
-%         vline( dev_time(embryoID,split_dev_frame(embryoID,1)) + 1,'m--');
-%         vline( dev_time(embryoID,split_dev_frame(embryoID,2)) + 1,'r--');
-%         title(['Embryo #' num2str( embryoID )]);
-%         drawnow
-%         hold off
-%         
-%         display(['Slope = ' num2str(p(2)) ' (um^2/sec)']);
-%         
-% %     end
+        % hold both axes
+        set(ax,'NextPlot','add')
+        plot( ax(1), xdata, models(:,1),'m-');
+        plot( ax(2), xdata, models(:,2),'r-');
+        xlabel('Developmental time (sec)')
+        ylabel('Average apical area (\mum^2)');
+        ylabel(ax(2),'Myosin intensity');
+        
+        vline( dev_time(embryoID,split_dev_frame(embryoID,1)) + 1,'m--');
+        vline( dev_time(embryoID,split_dev_frame(embryoID,2)) + 1,'r--');
+        title(['Embryo #' num2str( embryoID )]);
+        drawnow
+        hold off
+        
+        display(['Slope = ' num2str(p(2)) ' (um^2/sec)']);
+        
+%     end
 end
 
 %% Visualizing mean properties
