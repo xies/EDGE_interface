@@ -1,10 +1,10 @@
 %% cta KDE area
 % KDE estimates of cta area distribution
 
-embryoID = 1:5;
+embryoID = [ 11 ];
 kernel_size = 3; % um^2
-kde_bins = linspace(0,80,1024);
-slice_window = input(8).dt*5; % seconds
+kde_bins = linspace(0,100,1024);
+slice_window = input(11).dt*2; % seconds
 
 % Temporal slicing
 [sliceID,tbins,Ninslice] = temporally_slice(embryo_stack(embryoID),slice_window);
@@ -16,7 +16,8 @@ slice_window = input(8).dt*5; % seconds
 C = varycolor(numel(tbins));
 set(gca,'ColorOrder',C);
 set(gca,'NextPlot','replacechildren')
-plot(est_bins,est);
+% plot(est_bins,est);
+imagesc(tbins,est_bins,est'); colormap hot
 legend(num2str(tbins(:)));
 
 %% Find h_critical & mode distribution
@@ -56,7 +57,7 @@ ylabel('Kernel size')
 Nboot = 100;
 Nslice = numel(unique(sliceID)) - 1;
 Nmodes_bs = zeros(Nslice,Nboot);
-data = cat(2,embryo_stack(embryoID).area);
+data = cat(2,embryo_stack(embryoIpD).area);
 % matlabpool open 4
 
 for i = 1:Nslice

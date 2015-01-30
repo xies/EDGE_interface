@@ -46,7 +46,7 @@ end
 
 name2plot = 'myosin_intensity';
 clear H
-embryoID_OI = [16];
+embryoID_OI = [6 9];
 
 color = hsv(numel(embryoID_OI));
 
