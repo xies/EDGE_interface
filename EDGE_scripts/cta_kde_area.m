@@ -1,10 +1,10 @@
 %% cta KDE area
 % KDE estimates of cta area distribution
 
-embryoID = [ 11 ];
-kernel_size = 3; % um^2
+embryoID = [ 1:5 ];
+kernel_size = 2; % um^2
 kde_bins = linspace(0,100,1024);
-slice_window = input(11).dt*2; % seconds
+slice_window = input(11).dt*3; % seconds
 
 % Temporal slicing
 [sliceID,tbins,Ninslice] = temporally_slice(embryo_stack(embryoID),slice_window);
@@ -25,7 +25,8 @@ legend(num2str(tbins(:)));
 k_mode = 1; % test for not-unimodality
 h_scan = 1:0.1:6; % scanning
 
-[h_crit,Nmodes] = get_hcrit(cat(2,embryo_stack(embryoID).area),kde_bins,k_mode,h_scan,sliceID);
+[h_crit,Nmodes] = get_hcrit(cat(2,embryo_stack(embryoID).area), ...
+    kde_bins,k_mode,h_scan,sliceID);
 
 plot(tbins,h_crit);
 xlabel('Developmental time (sec)')
