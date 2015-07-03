@@ -4,11 +4,11 @@
 %% Generate correlations
 
 wt = 10;
-embryoID = 9;
+embryoID = 4;
 
-correlations = nanxcorr( ...
-    myosins_rate(:,[IDs.which] == embryoID), ...
-    areas_rate(:,[IDs.which] == embryoID),wt,1);
+correlations = nanxcorr( myosins_rate, areas_rate, wt, 1);
+%     myosins_rate(:,[IDs.which] == embryoID), ...
+%     areas_rate(:,[IDs.which] == embryoID),wt,1);
 
 [correlations,no_nan_cells] = delete_nan_rows(correlations,2);
 

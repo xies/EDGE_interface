@@ -46,6 +46,7 @@ for i = 1:sum(num_cells)
         % Try to make into numeric array
         try cell2mat(meas_this_cell);
         catch err
+            % do nothing
         end
         
         this_cell.(measurements{j}) = ...
@@ -57,7 +58,6 @@ for i = 1:sum(num_cells)
     this_cell.folder_name = embryo_stack( embryo_index ).input.folder2load;
     
     cells(i) = CellObj(this_cell);
-    
     % Manually set initial values for Pulses
     cells(i).flag_fitted = 0;
     cells(i).flag_tracked = 0;

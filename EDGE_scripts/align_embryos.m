@@ -44,9 +44,9 @@ end
 
 %% Visualizing mean properties
 
-name2plot = 'myosin_intensity';
+name2plot = 'area_sm';
 clear H
-embryoID_OI = [6 9];
+embryoID_OI = [1:3];
 
 color = hsv(numel(embryoID_OI));
 
@@ -85,7 +85,7 @@ for i = 1:numel( embryoID_OI )
 %     
     H(i) = shadedErrorBar(time,...
         nanmean(data,2), nanstd(data,[],2), ...
-        {'color',color(i,:)},0);
+        {'color',color(i,:)},1);
 %     H(i) = plot(time, nanmean(data,2), 'color', color(i,:) );
     
     entries{i} = ['Embryo ' num2str(embryoID) ', ' num2str(input(embryoID).dt) ' sec/frame'];

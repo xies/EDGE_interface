@@ -1,6 +1,6 @@
 %% Auto-correlation analysis
 
-embryoID = [6 9];
+embryoID = 1:2;
 num_embryos = numel(embryoID);
 wt = 25;
 
@@ -8,7 +8,7 @@ wt = 25;
 % m_ac - myosin autocorrelation
 % mr_ac - myosin rate autocorrelation
 
-for i = 6:9
+for i = 1:2
 %     
 %     m_ac{i} = nanxcorr(myosins_sm( 20:end,cIDs{i}), ...Gastor8
 %         myosins_sm( 20:end ,cIDs{i}),wt);
