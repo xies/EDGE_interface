@@ -57,6 +57,7 @@ for i = 1:sum(num_cells)
     this_cell.dev_time = embryo_stack( embryo_index ).dev_time;
     this_cell.folder_name = embryo_stack( embryo_index ).input.folder2load;
     
+    % Construct CellObj
     cells(i) = CellObj(this_cell);
     % Manually set initial values for Pulses
     cells(i).flag_fitted = 0;

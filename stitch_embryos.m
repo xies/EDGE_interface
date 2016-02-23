@@ -31,8 +31,8 @@ if all([input.fixed])
 else
     num_frames = cellfun(@(x) size(x,1), data);
 end
+max_num_frames = max(num_frames);
 max_num_frames = 130;
-
 
 % Preallocate
 t = nan( num_embryos , max_num_frames );

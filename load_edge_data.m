@@ -10,6 +10,9 @@ function m = load_edge_data(folder_names,varargin)
 %         EDGEstack.data - the actual data (cell-array, time-by-num_cells)
 %         EDGEstack.unit - relevant units to data
 %
+% The output EDGEstack will be index first by embryo and then by
+% measurement.
+%
 % See also extract_msmt_data
 %
 % xies@mit.edu Dec 2012.
